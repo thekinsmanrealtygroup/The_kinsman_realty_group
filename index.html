@@ -502,8 +502,8 @@
       <div class="mobile-menu" id="mobileMenu"><i class="fas fa-bars"></i></div>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
-        <a href="/pages/about.html">About</a>
-        <a href="/pages/properties.html">Properties</a>
+        <a href="pages/about.html">About</a>
+        <a href="pages/properties.html">Properties</a>
         <a href="pages/apply.html">Apply</a>
         <a href="pages/contact.html">Contact</a>
       </div>
@@ -627,11 +627,11 @@
       <div>
         <h4>Quick Links</h4>
         <ul style="list-style:none; line-height:2;">
-          <li><a href="/index.html" style="color:white; text-decoration:none;">Home</a></li>
-          <li><a href="/about.html" style="color:white; text-decoration:none;">About</a></li>
-          <li><a href="/properties.html" style="color:white; text-decoration:none;">Properties</a></li>
-          <li><a href="/apply.html" style="color:white; text-decoration:none;">Apply</a></li>
-          <li><a href="/contact.html" style="color:white; text-decoration:none;">Contact</a></li>
+  <li><a href="index.html" style="color:white; text-decoration:none;">Home</a></li>
+  <li><a href="pages/about.html" style="color:white; text-decoration:none;">About</a></li>
+  <li><a href="pages/properties.html" style="color:white; text-decoration:none;">Properties</a></li>
+  <li><a href="pages/apply.html" style="color:white; text-decoration:none;">Apply</a></li>
+  <li><a href="pages/contact.html" style="color:white; text-decoration:none;">Contact</a></li>
         </ul>
       </div>
       <div>
@@ -815,8 +815,7 @@
     mobileBtn.addEventListener('click', () => { navLinksEl.classList.toggle('show'); });
     document.querySelectorAll('.nav-links a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
+    const href = this.getAttribute('href');
         if(href && href !== '#') {
           window.location.href = href;
         }
