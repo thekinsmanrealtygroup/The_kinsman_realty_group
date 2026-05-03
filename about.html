@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Kinsman Realty | About & Support</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fb;
+      min-height: 100vh;
+    }
+    .site-header {
+      background: #0a2a3f;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo { font-size: 1.4rem; font-weight: 700; color: white; }
+    .logo span { color: #c9a03d; }
+    .nav-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.85rem;
+      opacity: 0.8;
+      transition: 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: #c9a03d; }
+    .container {
+      max-width: 1200px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+    }
+    /* About Section */
+    .about-section {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .about-section h1 {
+      font-size: 2rem;
+      color: #0a2a3f;
+      margin-bottom: 0.5rem;
+    }
+    .about-section h2 {
+      font-size: 1.3rem;
+      color: #0a2a3f;
+      margin: 1.5rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .about-section p {
+      color: #4a5568;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .process-card {
+      background: #f8fafc;
+      padding: 1.2rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+    .process-card i {
+      font-size: 2rem;
+      color: #c9a03d;
+      margin-bottom: 0.5rem;
+    }
+    .process-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .process-card p { font-size: 0.8rem; }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .value-item {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+    .value-item i { font-size: 1.8rem; color: #c9a03d; margin-bottom: 0.5rem; }
+    /* Chatbot Section */
+    .chat-section {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .chat-header h2 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #0a2a3f;
+    }
+    .chat-status {
+      font-size: 0.8rem;
+      background: #d1fae5;
+      padding: 0.3rem 0.8rem;
+      border-radius: 30px;
+      color: #065f46;
+    }
+    .chat-messages {
+      background: #f8fafc;
+      border-radius: 1rem;
+      padding: 1rem;
+      height: 400px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+    .message {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+    .message-user {
+      justify-content: flex-end;
+    }
+    .message-bubble {
+      max-width: 80%;
+      padding: 0.8rem 1rem;
+      border-radius: 1.2rem;
+      line-height: 1.4;
+    }
+    .message-bot .message-bubble {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-top-left-radius: 0.2rem;
+    }
+    .message-user .message-bubble {
+      background: #c9a03d;
+      color: #0a2a3f;
+      border-top-right-radius: 0.2rem;
+    }
+    .message-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .message-bot .message-icon { background: #0a2a3f; color: white; }
+    .message-user .message-icon { background: #c9a03d; color: #0a2a3f; }
+    .chat-input-area {
+      display: flex;
+      gap: 0.8rem;
+    }
+    .chat-input-area input {
+      flex: 1;
+      padding: 0.9rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 60px;
+      font-family: inherit;
+    }
+    .chat-input-area button {
+      background: #c9a03d;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 60px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .suggestion-btn {
+      background: #f1f5f9;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .suggestion-btn:hover { background: #c9a03d; }
+    footer {
+      background: #0a2a3f;
+      padding: 1.5rem;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.7rem;
+    }
+    @media (max-width: 700px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-container">
+    <div class="logo">Kinsman <span>Realty</span> Group</div>
+    <div class="nav-links">
+      <a href="/index.html">Home</a>
+      <a href="/apply.html">Apply</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/about.html" class="active">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <!-- About Us Section -->
+  <div class="about-section">
+    <h1>About Kinsman Realty Group</h1>
+    <p>Kinsman Realty Group is a trusted real estate agency dedicated to helping individuals and families find their perfect rental homes across the United States. With years of experience in property management and tenant relations, we pride ourselves on transparency, integrity, and exceptional service.</p>
+    
+    <h2><i class="fas fa-chart-line"></i> Our Mission</h2>
+    <p>To provide a seamless, stress-free rental experience by connecting qualified tenants with quality properties. We believe everyone deserves a place to call home, and we're committed to making the process transparent, efficient, and fair.</p>
+    
+    <h2><i class="fas fa-heart"></i> Our Core Values</h2>
+    <div class="values-grid">
+      <div class="value-item"><i class="fas fa-handshake"></i><h4>Integrity</h4><p>Honest and transparent in every interaction</p></div>
+      <div class="value-item"><i class="fas fa-star"></i><h4>Excellence</h4><p>Committed to the highest standards</p></div>
+      <div class="value-item"><i class="fas fa-users"></i><h4>Community</h4><p>Building lasting relationships</p></div>
+      <div class="value-item"><i class="fas fa-clock"></i><h4>Responsiveness</h4><p>Quick answers to your questions</p></div>
+    </div>
+    
+    <h2><i class="fas fa-clipboard-list"></i> The Rental Process</h2>
+    <div class="process-grid">
+      <div class="process-card"><i class="fas fa-file-alt"></i><h3>1. Submit Application</h3><p>Complete our online application form with your personal and employment details.</p></div>
+      <div class="process-card"><i class="fas fa-credit-card"></i><h3>2. Pay Application Fee</h3><p>$95 per adult for credit/background checks and processing.</p></div>
+      <div class="process-card"><i class="fas fa-calendar-check"></i><h3>3. Schedule a Tour</h3><p>View the property in person or via virtual tour.</p></div>
+      <div class="process-card"><i class="fas fa-key"></i><h3>4. Claim Your Home</h3><p>Sign the lease, pay deposit, and move in!</p></div>
+    </div>
+    
+    <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+    <div class="info-box" style="background:#f8fafc; padding:1rem; border-radius:1rem; margin-top:0.5rem;">
+      <p><strong>❓ How long does the application process take?</strong> Typically 2-5 business days after receiving all documents.</p>
+      <p><strong>❓ What documents do I need?</strong> Government ID, proof of income (pay stubs/tax returns), and rental history.</p>
+      <p><strong>❓ Is the application fee refundable?</strong> No, it's non-refundable and covers credit/background checks.</p>
+      <p><strong>❓ Can I apply with roommates?</strong> Yes! Each adult occupant must submit an application and pay the $95 fee.</p>
+      <p><strong>❓ What credit score do I need?</strong> Minimum 620 recommended, but we consider all applications.</p>
+    </div>
+  </div>
+
+  <!-- AI Chatbot Section -->
+  <div class="chat-section">
+    <div class="chat-header">
+      <h2><i class="fas fa-robot" style="color:#c9a03d;"></i> Kinsman Assistant</h2>
+      <div class="chat-status"><i class="fas fa-circle" style="font-size:0.6rem; color:#10b981;"></i> Online • 24/7</div>
+    </div>
+    <div id="chatMessages" class="chat-messages">
+      <div class="message message-bot">
+        <div class="message-icon"><i class="fas fa-robot"></i></div>
+        <div class="message-bubble">👋 Hi there! I'm the Kinsman Realty Assistant. I can answer any questions about our rental process, application fees, tours, lease terms, and more. What would you like to know?</div>
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" placeholder="Ask me anything about renting with Kinsman..." onkeypress="if(event.key==='Enter') sendMessage()">
+      <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i> Send</button>
+    </div>
+    <div class="suggestions">
+      <button class="suggestion-btn" onclick="sendQuickQuestion('How do I apply for a property?')">📝 How to apply?</button>
+      <button class="suggestion-btn" onclick="sendQuickQuestion('What is the application fee?')">💰 Application fee?</button>
+      <button class="suggestion-btn" onclick="sendQuickQuestion('Can I schedule a tour?')">🗓️ Schedule tour?</button>
+      <button class="suggestion-btn" onclick="sendQuickQuestion('What documents do I need?')">📄 Required documents?</button>
+      <button class="suggestion-btn" onclick="sendQuickQuestion('When is the deposit due?')">🏠 Deposit due date?</button>
+      <button class="suggestion-btn" onclick="sendQuickQuestion('Do you accept pets?')">🐕 Pet policy?</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Kinsman Realty Group — Your Trusted Partner in Finding the Perfect Home | Chatbot Available 24/7</p>
+</footer>
+
+<script>
+  // Enhanced AI Chatbot Response System
+  function getBotResponse(userMessage) {
+    const msg = userMessage.toLowerCase().trim();
+    
+    // Application Process
+    if (msg.match(/how (to|do i) apply|application process|apply for|rental application|start application/)) {
+      return "📝 To apply for a property:\n\n1️⃣ Click the 'Apply' tab in the navigation menu\n2️⃣ Complete the online application form\n3️⃣ Pay the $95 per adult application fee\n4️⃣ Upload required documents (ID, proof of income)\n5️⃣ Schedule a tour once approved\n\nNeed the direct link? Go to our Apply page!";
+    }
+    
+    // Application Fee
+    if (msg.match(/application fee|fee cost|how much is fee|\\$95|95 dollars|cost to apply/)) {
+      return "💰 The application fee is **$95 per adult** (age 18+). This covers:\n• Credit and background checks\n• Employment verification\n• Rental history review\n• Administrative processing\n\nThe fee is non-refundable and paid during Step 2 of the application process.";
+    }
+    
+    // Documents needed
+    if (msg.match(/documents|what do i need|required documents|paperwork|upload|proof/)) {
+      return "📄 You'll need these documents to complete your application:\n\n✅ Government-issued photo ID (driver's license, passport)\n✅ Proof of income (last 2-3 pay stubs or tax returns)\n✅ Rental history (previous landlord contact info)\n✅ Employment verification (employer name and contact)\n✅ Social Security number (for background check)\n\nUpload these during the application process!";
+    }
+    
+    // Tour scheduling
+    if (msg.match(/tour|schedule a tour|view property|see the house|virtual tour|in-person/)) {
+      return "🗓️ Yes, you can schedule a tour!\n\n• Tours are available after your application is submitted and fee is paid\n• Choose a date (must be tomorrow or later) and time\n• We'll confirm within 24 hours\n• Virtual tours are also available upon request\n\nGo to the Apply page to schedule your tour during Step 3!";
+    }
+    
+    // Deposit
+    if (msg.match(/deposit|security deposit|holding deposit|money down/)) {
+      return "🏠 The security deposit is typically equal to one month's rent. It's due when you sign the lease agreement (Step 4 - Claim Property). The deposit is refundable at move-out, minus any damages beyond normal wear and tear.";
+    }
+    
+    // Pet policy
+    if (msg.match(/pet|dog|cat|animal|pets allowed|pet friendly/)) {
+      return "🐕 Pet policies vary by property! Most of our rentals are pet-friendly with restrictions.\n\n📌 Typical pet policy:\n• Cats and small dogs under 50 lbs (subject to owner approval)\n• Pet deposit: $300-500 per pet\n• Monthly pet rent: $25-50 per pet\n• Breed restrictions may apply\n\nContact us to confirm specific property policies!";
+    }
+    
+    // Credit score
+    if (msg.match(/credit|credit score|bad credit|score needed/)) {
+      return "📊 Credit score requirements:\n\n• Minimum recommended: **620**\n• We consider all applications holistically\n• Good rental history and income can offset lower credit\n• Each adult applicant undergoes a credit check\n• The $95 fee covers the credit report\n\nDon't let a low score stop you from applying - we review every application individually!";
+    }
+    
+    // Income requirements
+    if (msg.match(/income|how much income|salary|earn|make per year|household income/)) {
+      return "💰 Income requirements:\n\n• Typically 3x the monthly rent\n• Example: Rent $1,500 → Income $4,500/month\n• All income sources count (job, self-employed, investments, alimony)\n• We accept pay stubs, tax returns, or bank statements as proof\n\nRoommates' combined income is considered!";
+    }
+    
+    // Timeline
+    if (msg.match(/how long|timeline|processing time|when will i hear back|waiting period/)) {
+      return "⏱️ Application timeline:\n\n• Application submitted → Review within 24-48 hours\n• Background check → 1-3 business days\n• Approval decision → Within 5 business days\n• Tour scheduling → Within 24 hours of request\n• Lease signing → Within 3 days of approval\n\nWe'll email you updates at every stage!";
+    }
+    
+    // Roommates
+    if (msg.match(/roommate|roommates|multiple people|joint application|co-applicant/)) {
+      return "👥 Yes, you can apply with roommates!\n\n📌 Important details:\n• Each adult (18+) must submit a separate application\n• Each pays the $95 application fee\n• Combined income counts toward requirements\n• All applicants are jointly responsible for the lease\n\nAdd roommates during the application process!";
+    }
+    
+    // Lease term
+    if (msg.match(/lease|how long|term|month to month|12 month|year/)) {
+      return "📋 Lease terms:\n\n• Standard lease: **12 months**\n• Short-term options available (3-6 months) at higher rates\n• Month-to-month available after first year\n• Renewal options offered 60 days before lease ends\n\nSpecific terms vary by property - ask about your desired home!";
+    }
+    
+    // Move-in date
+    if (msg.match(/move in|when can i move|available date|start date/)) {
+      return "📅 Move-in dates:\n\n• Typically 7-14 days after lease signing\n• We can accommodate sooner if property is ready\n• Standard lease starts on the 1st or 15th of the month\n• Ask about earlier availability during your tour!\n\nOnce approved, we'll work with you to find the perfect move-in date.";
+    }
+    
+    // Contact info
+    if (msg.match(/contact|phone|email|call|text|reach|landlord|property manager/)) {
+      return "📞 You can reach us anytime:\n\n📧 Email: hello@kinsmanrealty.com\n📞 Phone: +1 (800) 524-8823\n💬 WhatsApp: +1 (888) 733-9284\n💬 Facebook: @kinsmanrealtygroup\n\nOur team responds within 2 hours during business days!";
+    }
+    
+    // Hours
+    if (msg.match(/hours|business hours|when are you open|available|office hours/)) {
+      return "🕒 Our business hours:\n\nMonday - Friday: 9:00 AM - 7:00 PM (EST)\nSaturday: 10:00 AM - 4:00 PM (EST)\nSunday: Closed (but our chatbot is here 24/7!)\n\n💬 Chatbot available anytime!\n📧 Emails answered within 24 hours on weekends.";
+    }
+    
+    // Utility setup
+    if (msg.match(/utilities|electric|water|gas|internet|setup|bills/)) {
+      return "💡 Utilities information:\n\nTenant typically pays:\n• Electricity (set up with local provider)\n• Gas (if applicable)\n• Water & sewer\n• Internet & cable\n• Trash (some communities include this)\n\nLandlord typically pays:\n• Lawn care (at many properties)\n• HOA fees (if applicable)\n\nWe'll provide utility contact info after lease signing!";
+    }
+    
+    // Maintenance
+    if (msg.match(/maintenance|repair|broken|fix|issue/)) {
+      return "🔧 Maintenance requests:\n\n• Submit via tenant portal after move-in\n• Emergency repairs: 24/7 response\n• Non-emergency: Within 48 hours\n• All maintenance is handled by licensed professionals\n\nWe take repairs seriously and respond quickly!";
+    }
+    
+    // Eviction
+    if (msg.match(/eviction|bad rental history|past eviction/)) {
+      return "⚠️ Past evictions:\n\nWe review each application individually. Past evictions don't automatically disqualify you, but we consider:\n• How long ago it occurred\n• The circumstances\n• Current rental history\n• Income stability\n\nBe honest in your application - we're here to work with you!";
+    }
+    
+    // Default friendly response
+    return "Thanks for your question! I'm here to help with:\n\n📝 Application process\n💰 Fees and deposits\n🗓️ Tour scheduling\n📄 Required documents\n🐕 Pet policies\n📊 Credit requirements\n📞 Landlord contact info\n\nCould you rephrase your question? I'll do my best to answer it!";
+  }
+  
+  function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const userMessage = input.value.trim();
+    if (userMessage === '') return;
+    
+    // Add user message
+    addMessage(userMessage, 'user');
+    input.value = '';
+    
+    // Get bot response
+    const botResponse = getBotResponse(userMessage);
+    
+    // Add bot response after a short delay
+    setTimeout(() => {
+      addMessage(botResponse, 'bot');
+    }, 500);
+  }
+  
+  function sendQuickQuestion(question) {
+    addMessage(question, 'user');
+    const botResponse = getBotResponse(question);
+    setTimeout(() => {
+      addMessage(botResponse, 'bot');
+    }, 500);
+  }
+  
+  function addMessage(text, sender) {
+    const chatDiv = document.getElementById('chatMessages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message message-${sender}`;
+    
+    const icon = sender === 'bot' ? '<i class="fas fa-robot"></i>' : '<i class="fas fa-user"></i>';
+    messageDiv.innerHTML = `
+      <div class="message-icon">${icon}</div>
+      <div class="message-bubble">${text.replace(/\n/g, '<br>')}</div>
+    `;
+    
+    chatDiv.appendChild(messageDiv);
+    chatDiv.scrollTop = chatDiv.scrollHeight;
+  }
+  
+  // Allow Enter key to send
+  document.getElementById('chatInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') sendMessage();
+  });
+</script>
+</body>
+</html>

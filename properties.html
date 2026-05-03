@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Kinsman Realty | Live Listings – Rent & Sale</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', 'Poppins', sans-serif;
+      background: #f8fafc;
+      color: #1e2a3a;
+      line-height: 1.5;
+    }
+    :root {
+      --navy: #0b2b44;
+      --gold: #c9a03d;
+      --gold-dark: #ad8232;
+      --white: #ffffff;
+      --gray-light: #f1f5f9;
+      --gray-border: #e2e8f0;
+      --shadow-sm: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+      --shadow-md: 0 20px 25px -12px rgba(0,0,0,0.08);
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .navbar {
+      background: var(--white);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(2px);
+    }
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .logo { font-size: 1.6rem; font-weight: 700; color: var(--navy); letter-spacing: -0.5px; }
+    .logo span { color: var(--gold); }
+    .nav-links a {
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      color: var(--navy);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .mobile-menu { display: none; font-size: 1.5rem; cursor: pointer; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu { display: block; }
+    }
+    .hero {
+      background: linear-gradient(107deg, rgba(11,43,68,0.92) 0%, rgba(11,43,68,0.7) 100%), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 60px 0;
+      text-align: center;
+      color: white;
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.1rem; opacity: 0.9; }
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0 1rem;
+      border-bottom: 2px solid var(--gray-border);
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: #4a5568;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      color: var(--gold);
+      border-bottom: 3px solid var(--gold);
+      margin-bottom: -2px;
+    }
+    .properties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .property-card {
+      background: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+      border: 1px solid var(--gray-border);
+    }
+    .property-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .card-img {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    .card-details { padding: 1.2rem; }
+    .price { font-size: 1.5rem; font-weight: 700; color: var(--gold); margin-bottom: 0.25rem; }
+    .address { font-size: 0.8rem; color: #4a5568; margin: 0.25rem 0; display: flex; align-items: center; gap: 5px; }
+    .desc { font-size: 0.85rem; margin: 0.5rem 0; color: #2d3e50; min-height: 60px; }
+    .features { display: flex; gap: 1rem; font-size: 0.8rem; margin: 0.5rem 0; color: #4a5568; }
+    .owner-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 10px 0 5px;
+      padding: 6px 0;
+      border-top: 1px solid var(--gray-border);
+    }
+    .owner-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .owner-name { font-size: 0.75rem; font-weight: 500; }
+    .btn-group { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+    .contact-btn, .apply-btn {
+      flex: 1;
+      padding: 8px 0;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      cursor: pointer;
+      text-align: center;
+      border: none;
+    }
+    .contact-btn { background: var(--navy); color: white; }
+    .contact-btn:hover { background: var(--gold); color: var(--navy); }
+    .apply-btn { background: var(--gold); color: var(--navy); }
+    .apply-btn:hover { background: var(--gold-dark); }
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background: white;
+      border-radius: 1.5rem;
+      max-width: 400px;
+      width: 90%;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .popup-close { position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem; cursor: pointer; }
+    .contact-options { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+    .contact-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 12px;
+      background: var(--gray-light);
+      border-radius: 60px;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 500;
+    }
+    .contact-option i { width: 30px; font-size: 1.2rem; color: var(--gold); }
+    .contact-option:hover { background: var(--gold); color: white; }
+    .property-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1100;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto;
+    }
+    .property-modal .modal-content {
+      background: white;
+      max-width: 900px;
+      width: 90%;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .close-property-modal {
+      position: absolute;
+      right: 1.2rem;
+      top: 1rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    .gallery-thumb {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .gallery-thumb img {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .main-modal-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
+    .owner-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+      padding: 1rem;
+      background: var(--gray-light);
+      border-radius: 1rem;
+    }
+    .owner-section img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .about-house {
+      background: #fef9e6;
+      padding: 0.8rem;
+      border-radius: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    @media (max-width: 700px) { .properties-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">Kinsman <span>Realty</span> Group</div>
+    <div class="mobile-menu" id="mobileMenu"><i class="fas fa-bars"></i></div>
+    <div class="nav-links" id="navLinks"><a href="/index.html">Home</a><a href="/properties.html" class="active">Properties</a><a href="/contact.html">Contact</a></div>
+  </div>
+</nav>
+<section class="hero"><div class="container"><h1>Exact Address Listings – Rent & Sale</h1><p>Real properties from across the US with detailed photo galleries</p></div></section>
+<div class="container">
+  <div class="tabs"><button class="tab-btn active" id="tabRentBtn">🏠 For Rent (10)</button><button class="tab-btn" id="tabSaleBtn">💰 For Sale (10)</button></div>
+  <div id="propertiesContainer" class="properties-grid"></div>
+</div>
+<footer><div class="container"><p>Kinsman Realty Group © 2026 — Elevating Real Estate</p></div></footer>
+
+<div id="contactPopup" class="popup-overlay">
+  <div class="popup-content"><span class="popup-close" id="closePopup">&times;</span><h3><i class="fas fa-user-tie"></i> Contact Kinsman Realty Group Landlord</h3>
+    <div class="contact-options">
+      <a href="thekinsmanrealtygroup@proton.me" id="popupEmail" class="contact-option"><i class="fas fa-envelope"></i> Send Email</a>
+      <a href="https://www.facebook.com/share/1AyDcJqBo1/" id="popupFacebook" class="contact-option" target="_blank"><i class="fab fa-facebook-messenger"></i> Facebook Message</a>
+      <a href=">+1 (385)-281-3672" id="popupPhone" class="contact-option"><i class="fas fa-phone-alt"></i> Call Now</a>
+    </div>
+  </div>
+</div>
+
+<div id="propertyModal" class="property-modal">
+  <div class="modal-content"><span class="close-property-modal" id="closePropertyModal">&times;</span><div id="propertyModalContent"></div></div>
+</div>
+
+<script>
+  // ======================= 🔴 GOOGLE FORM LINK - REPLACE WITH YOUR OWN 🔴 =======================
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSe1i6dFiBSmDNyOr_zwWb-O_fo7B20SqkDQKrsZ0X_DhJvKhA/viewform?usp=publish-editor";
+  
+  // ======================= 10 HOUSES FOR SALE (EXACT ADDRESSES) ==============================
+  const saleListings = [
+    { id: 1, address: "3397 Ivan Way, Mountain View, CA 94040", price: 3198000, beds: 3, baths: 2, sqft: 2150, desc: "Stunning Eichler-inspired home with open floor plan and large lot.", aboutHouse: "This beautifully updated mid-century modern features a gourmet kitchen, private backyard, and prime Mountain View location near tech campuses.", ownerName: "Silicon Valley Realty", ownerImg: "https://randomuser.me/api/portraits/women/68.jpg", images: generateImages() },
+    { id: 2, address: "2408 Laura Ln, Mountain View, CA 94043", price: 1700000, beds: 4, baths: 2, sqft: 1580, desc: "Charming single-level home with newly renovated kitchen and oversized garage.", aboutHouse: "Great curb appeal, hardwood floors, huge backyard perfect for entertaining.", ownerName: "Premier Homes", ownerImg: "https://randomuser.me/api/portraits/men/32.jpg", images: generateImages() },
+    { id: 3, address: "943 Castilleja Ct, Los Altos, CA 94024", price: 4998000, beds: 5, baths: 3, sqft: 3800, desc: "Custom craftsman on quiet cul-de-sac, top Los Altos schools.", aboutHouse: "High-end finishes, chef's kitchen, wine cellar, and beautifully landscaped grounds.", ownerName: "Los Altos Estates", ownerImg: "https://randomuser.me/api/portraits/women/44.jpg", images: generateImages() },
+    { id: 4, address: "3172 Killian Rd, Uniontown, OH 44685", price: 260000, beds: 4, baths: 2, sqft: 1820, desc: "Well-maintained ranch with finished basement and large fenced yard.", aboutHouse: "New roof, HVAC, and flooring. Move-in ready with plenty of space.", ownerName: "Ohio Homestead", ownerImg: "https://randomuser.me/api/portraits/men/45.jpg", images: generateImages() },
+    { id: 5, address: "482 Old Rockhouse Rd, Greenville, SC 29609", price: 735000, beds: 4, baths: 3, sqft: 2600, desc: "Stunning mountain views, stone fireplace, and extensive decks.", aboutHouse: "Private setting on 1.5 acres, just minutes from downtown Greenville.", ownerName: "Carolina Living", ownerImg: "https://randomuser.me/api/portraits/women/33.jpg", images: generateImages() },
+    { id: 6, address: "18502 Mill Path Ct, Houston, TX 77084", price: 385000, beds: 4, baths: 3, sqft: 2450, desc: "Spacious two-story home with game room and upgraded kitchen.", aboutHouse: "Corner lot, mature trees, community pool, and excellent schools.", ownerName: "Houston Properties", ownerImg: "https://randomuser.me/api/portraits/men/23.jpg", images: generateImages() },
+    { id: 7, address: "5601 Beaver Dam Ln, Mint Hill, NC 28227", price: 599000, beds: 4, baths: 3, sqft: 2720, desc: "Like-new construction with open concept and screened porch.", aboutHouse: "Energy-efficient, granite counters, huge master suite, and 2-car garage.", ownerName: "Carolina Dream Homes", ownerImg: "https://randomuser.me/api/portraits/women/89.jpg", images: generateImages() },
+    { id: 8, address: "151 Rolen Rd, New Tazewell, TN 37825", price: 450000, beds: 3, baths: 3, sqft: 2100, desc: "Secluded log cabin on 5 wooded acres with creek.", aboutHouse: "Perfect retreat with wrap-around porch, fireplace, and rustic charm.", ownerName: "Tennessee Land Co.", ownerImg: "https://randomuser.me/api/portraits/men/52.jpg", images: generateImages() },
+    { id: 9, address: "5035 NW 32nd Pl, Ocala, FL 34482", price: 325000, beds: 3, baths: 2, sqft: 1680, desc: "Move-in ready ranch with split floor plan and screened lanai.", aboutHouse: "Close to horse farms and World Equestrian Center.", ownerName: "Ocala Realty Group", ownerImg: "https://randomuser.me/api/portraits/women/50.jpg", images: generateImages() },
+    { id: 10, address: "1298 Bush St, Angels Camp, CA 95222", price: 395000, beds: 3, baths: 3, sqft: 1930, desc: "Charming Victorian with modern updates, near historic downtown.", aboutHouse: "Original woodwork, renovated kitchen, lovely garden and detached workshop.", ownerName: "Gold Country Realty", ownerImg: "https://randomuser.me/api/portraits/men/62.jpg", images: generateImages() }
+  ];
+
+  // ======================= 10 HOUSES FOR RENT (EXACT ADDRESSES) ==============================
+  const rentalListings = [
+    { id: 11, address: "11195 Hooper Ln, Los Altos Hills, CA 94024", price: 32998, beds: 4, baths: 5, sqft: 4500, desc: "Gated modern estate with pool, theater, and panoramic views.", aboutHouse: "Luxury living at its finest – smart home, elevators, and resort-style grounds.", ownerName: "Hillside Trust", ownerImg: "https://randomuser.me/api/portraits/women/22.jpg", images: generateImages() },
+    { id: 12, address: "1526 Hillview Dr, Los Altos, CA 94024", price: 24995, beds: 5, baths: 5.5, sqft: 4200, desc: "Contemporary masterpiece with grand living spaces and private garden.", aboutHouse: "Soaring ceilings, home office, gym, and top-of-the-line appliances.", ownerName: "SV Luxury Rentals", ownerImg: "https://randomuser.me/api/portraits/men/41.jpg", images: generateImages() },
+    { id: 13, address: "3421 Ramona St, Palo Alto, CA 94306", price: 9600, beds: 5, baths: 3, sqft: 2350, desc: "Classic Palo Alto home with updated systems, near Stanford.", aboutHouse: "Eat-in kitchen, large backyard, garage, and A+ schools.", ownerName: "Peninsula Properties", ownerImg: "https://randomuser.me/api/portraits/women/77.jpg", images: generateImages() },
+    { id: 14, address: "714 Wildwood Ln, Palo Alto, CA 94303", price: 6750, beds: 3, baths: 2, sqft: 1520, desc: "Charming single-level, hardwood floors, central AC, and sunny yard.", aboutHouse: "Walk to parks and shopping. Quiet tree-lined street.", ownerName: "Bay Area Rentals", ownerImg: "https://randomuser.me/api/portraits/men/28.jpg", images: generateImages() },
+    { id: 15, address: "174 S Bernardo Ave, Sunnyvale, CA 94086", price: 5000, beds: 3, baths: 2, sqft: 1350, desc: "Remodeled mid-century near Apple Park, EV charger included.", aboutHouse: "New kitchen, bathrooms, flooring, and private patio.", ownerName: "Sunnyvale Homes", ownerImg: "https://randomuser.me/api/portraits/women/63.jpg", images: generateImages() },
+    { id: 16, address: "298 S Trussville St, Aurora, CO 80018", price: 2877, beds: 4, baths: 2.5, sqft: 2100, desc: "Spacious two-story with mountain views and finished basement.", aboutHouse: "Community pool, park nearby, and easy commute to Denver.", ownerName: "Colorado Key Homes", ownerImg: "https://randomuser.me/api/portraits/men/34.jpg", images: generateImages() },
+    { id: 17, address: "501 Vinca Ln, Oswego, IL 60543", price: 2800, beds: 3, baths: 2, sqft: 1650, desc: "Modern townhome with attached garage and private deck.", aboutHouse: "Open floor plan, stainless appliances, and great schools.", ownerName: "Oswego Rentals", ownerImg: "https://randomuser.me/api/portraits/women/49.jpg", images: generateImages() },
+    { id: 18, address: "79659 East Vendela Street, Tucson, AZ 85748", price: 1800, beds: 3, baths: 2, sqft: 1280, desc: "Bright desert home with mountain views and fenced yard.", aboutHouse: "Newly painted, central AC, and quiet neighborhood.", ownerName: "Tucson Property Mgmt", ownerImg: "https://randomuser.me/api/portraits/men/55.jpg", images: generateImages() },
+    { id: 19, address: "6250 Jones Avenue, Riverside, CA 92505", price: 2051, beds: 2, baths: 1, sqft: 870, desc: "Cozy starter home with updated fixtures and private backyard.", aboutHouse: "Close to UCR, shopping, and freeway access.", ownerName: "Inland Empire Leasing", ownerImg: "https://randomuser.me/api/portraits/women/38.jpg", images: generateImages() },
+    { id: 20, address: "4327 West Pinsapo Drive, Fresno, CA 93722", price: 1595, beds: 3, baths: 2, sqft: 1150, desc: "Well-kept single-level with new carpet and large covered patio.", aboutHouse: "Quiet neighborhood, near schools and parks.", ownerName: "Fresno Family Rentals", ownerImg: "https://randomuser.me/api/portraits/men/73.jpg", images: generateImages() }
+  ];
+
+  // Helper: generate 6 unique image URLs per property (different "realistic" stock photos)
+  function generateImages() {
+    const baseSets = [
+      ["https://images.unsplash.com/photo-1560448204-e02f11c3d0e2", "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688", "https://images.unsplash.com/photo-1580587771525-78b9dba3b914", "https://images.unsplash.com/photo-1600585154340-be6161a56a0c", "https://images.unsplash.com/photo-1564013799919-ab600027ffc6", "https://images.unsplash.com/photo-1613977257365-aaae5a9817ff"],
+      ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750", "https://images.unsplash.com/photo-1575517111478-7f6afd0973db", "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267", "https://images.unsplash.com/photo-1502672023488-70e25813eb80", "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9", "https://images.unsplash.com/photo-1554995207-c18c203602cb"],
+      ["https://images.unsplash.com/photo-1600585154340-be6161a56a0c", "https://images.unsplash.com/photo-1613490493576-7fde63acd811", "https://images.unsplash.com/photo-1564013799919-ab600027ffc6", "https://images.unsplash.com/photo-1580587771525-78b9dba3b914", "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688", "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"]
+    ];
+    const set = baseSets[Math.floor(Math.random() * baseSets.length)];
+    return set.map(url => url + "?w=800");
+  }
+
+  // Replace all images with consistent 6-url arrays (using generateImages once per property)
+  for (let i = 0; i < saleListings.length; i++) saleListings[i].images = generateImages();
+  for (let i = 0; i < rentalListings.length; i++) rentalListings[i].images = generateImages();
+
+  // ======================= RENDER FUNCTIONS (same as before) ================================
+  let currentTab = "rent";
+  function formatPrice(price, isRent) { return isRent ? `$${price.toLocaleString()}/mo` : `$${price.toLocaleString()}`; }
+  function renderProperties() {
+    const container = document.getElementById("propertiesContainer");
+    const data = currentTab === "rent" ? rentalListings : saleListings;
+    const isRent = currentTab === "rent";
+    if (!data || data.length === 0) { container.innerHTML = "<div style='text-align:center; padding:3rem;'>No listings yet.</div>"; return; }
+    container.innerHTML = data.map(prop => `
+      <div class="property-card">
+        <img class="card-img" src="${prop.images[0]}" alt="Property">
+        <div class="card-details">
+          <div class="price">${formatPrice(prop.price, isRent)}</div>
+          <div class="address"><i class="fas fa-map-pin" style="color: var(--gold);"></i> ${prop.address}</div>
+          <div class="desc">${prop.desc}</div>
+          <div class="features"><span><i class="fas fa-bed"></i> ${prop.beds} bd</span><span><i class="fas fa-bath"></i> ${prop.baths} ba</span><span>📐 ${prop.sqft} sqft</span></div>
+          <div class="owner-badge"><img class="owner-img" src="${prop.ownerImg}"><span class="owner-name">Landlord: ${prop.ownerName}</span></div>
+          <div class="btn-group"><button class="contact-btn" data-address="${prop.address.replace(/"/g, '&quot;')}"><i class="fas fa-headset"></i> Contact Kinsman Landlord</button><button class="apply-btn"><i class="fas fa-file-signature"></i> Apply Now</button></div>
+        </div>
+      </div>
+    `).join("");
+    document.querySelectorAll(".contact-btn").forEach(btn => btn.addEventListener("click", e => openContactPopup(btn.dataset.address)));
+    document.querySelectorAll(".apply-btn").forEach(btn => btn.addEventListener("click", () => openGoogleForm()));
+    document.querySelectorAll(".card-img").forEach((img, idx) => img.addEventListener("click", () => showPropertyGallery(data[idx])));
+  }
+  function showPropertyGallery(prop) {
+    const modal = document.getElementById("propertyModal");
+    const contentDiv = document.getElementById("propertyModalContent");
+    let thumbs = "";
+    for (let i=0; i<prop.images.length; i++) thumbs += `<img src="${prop.images[i]}" data-img="${prop.images[i]}">`;
+    const isRent = currentTab === "rent";
+    contentDiv.innerHTML = `<h2>${prop.address}</h2><div class="price">${formatPrice(prop.price, isRent)}</div><img class="main-modal-img" id="modalMainImg" src="${prop.images[0]}"><div class="gallery-thumb" id="galleryThumbs">${thumbs}</div><div class="owner-section"><img src="${prop.ownerImg}"><div><strong>${prop.ownerName}</strong><br>Property host</div></div><div class="about-house">${prop.aboutHouse}</div><div class="features"><span>🛏️ ${prop.beds} beds</span><span>🛁 ${prop.baths} baths</span><span>📐 ${prop.sqft} sqft</span></div><div class="btn-group"><button class="contact-btn" id="modalContactBtn">Contact Landlord</button><button class="apply-btn" id="modalApplyBtn">Apply Now</button></div>`;
+    modal.style.display = "flex";
+    document.getElementById("modalContactBtn").onclick = () => openContactPopup(prop.address);
+    document.getElementById("modalApplyBtn").onclick = () => openGoogleForm();
+    const thumbsImgs = document.querySelectorAll("#galleryThumbs img");
+    const mainImg = document.getElementById("modalMainImg");
+    thumbsImgs.forEach(t => t.addEventListener("click", () => mainImg.src = t.dataset.img));
+  }
+  function openContactPopup(addr) {
+    const p = document.getElementById("contactPopup");
+    document.getElementById("popupEmail").href = `mailto:hello@kinsmanrealty.com?subject=Inquiry about ${encodeURIComponent(addr)}&body=Hi, I'm interested in ${addr}.`;
+    document.getElementById("popupFacebook").href = "https://m.me/kinsmanrealtygroup";
+    document.getElementById("popupPhone").href = "tel:+18005248823";
+    p.style.display = "flex";
+  }
+  function closeContactPopup() { document.getElementById("contactPopup").style.display = "none"; }
+  function openGoogleForm() { window.open(GOOGLE_FORM_URL, "_blank"); setTimeout(() => alert("✅ Application form opened."), 200); }
+
+  document.getElementById("tabRentBtn").addEventListener("click", () => { currentTab = "rent"; document.getElementById("tabRentBtn").classList.add("active"); document.getElementById("tabSaleBtn").classList.remove("active"); renderProperties(); });
+  document.getElementById("tabSaleBtn").addEventListener("click", () => { currentTab = "sale"; document.getElementById("tabSaleBtn").classList.add("active"); document.getElementById("tabRentBtn").classList.remove("active"); renderProperties(); });
+  document.getElementById("closePopup").addEventListener("click", closeContactPopup);
+  window.addEventListener("click", (e) => { if (e.target === document.getElementById("contactPopup")) closeContactPopup(); if (e.target === document.getElementById("propertyModal")) document.getElementById("propertyModal").style.display = "none"; });
+  document.getElementById("closePropertyModal").addEventListener("click", () => document.getElementById("propertyModal").style.display = "none");
+  const mobileBtn = document.getElementById("mobileMenu"), navLinks = document.getElementById("navLinks");
+  if(mobileBtn) mobileBtn.addEventListener("click", () => navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex");
+  renderProperties();
+</script>
+</body>
+</html>
