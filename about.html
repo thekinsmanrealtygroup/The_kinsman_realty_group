@@ -103,6 +103,8 @@
       text-align: center;
     }
     .value-item i { font-size: 1.8rem; color: #c9a03d; margin-bottom: 0.5rem; }
+    .value-item h4 { margin-bottom: 0.3rem; }
+    .value-item p { font-size: 0.8rem; }
     /* Chatbot Section */
     .chat-section {
       background: white;
@@ -227,10 +229,10 @@
   <div class="header-container">
     <div class="logo">Kinsman <span>Realty</span> Group</div>
     <div class="nav-links">
-      <a href="../index.html">Home</a>
-      <a href="/apply.html">Apply</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/about.html" class="active">About</a>
+      <a href="index.html">Home</a>
+      <a href="apply.html">Apply</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html" class="active">About</a>
     </div>
   </div>
 </header>
@@ -312,7 +314,7 @@
     }
     
     // Application Fee
-    if (msg.match(/application fee|fee cost|how much is fee|\\$95|95 dollars|cost to apply/)) {
+    if (msg.match(/application fee|fee cost|how much is fee|\$95|95 dollars|cost to apply/)) {
       return "💰 The application fee is **$95 per adult** (age 18+). This covers:\n• Credit and background checks\n• Employment verification\n• Rental history review\n• Administrative processing\n\nThe fee is non-refundable and paid during Step 2 of the application process.";
     }
     
@@ -368,7 +370,7 @@
     
     // Contact info
     if (msg.match(/contact|phone|email|call|text|reach|landlord|property manager/)) {
-      return "📞 You can reach us anytime:\n\n📧 Email: hello@kinsmanrealty.com\n📞 Phone: +1 (800) 524-8823\n💬 WhatsApp: +1 (888) 733-9284\n💬 Facebook: @kinsmanrealtygroup\n\nOur team responds within 2 hours during business days!";
+      return "📞 You can reach us anytime:\n\n📧 Email: thekinsmanrealtygroup@proton.me\n📞 Phone: +1 (385)-281-3672\n💬 WhatsApp: +1 (385)-281-3672\n💬 Facebook: Kinsman Realty Group\n\nOur team responds within 2 hours during business days!";
     }
     
     // Hours
