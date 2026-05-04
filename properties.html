@@ -263,7 +263,10 @@
     <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
       <a href="properties.html" class="active">Properties</a>
-      <a href="contact.html">Contact</a></div>
+      <a href="apply.html">Apply</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </div>
   </div>
 </nav>
 <section class="hero"><div class="container"><h1>Exact Address Listings – Rent & Sale</h1><p>Real properties from across the US with detailed photo galleries</p></div></section>
@@ -276,9 +279,9 @@
 <div id="contactPopup" class="popup-overlay">
   <div class="popup-content"><span class="popup-close" id="closePopup">&times;</span><h3><i class="fas fa-user-tie"></i> Contact Kinsman Realty Group Landlord</h3>
     <div class="contact-options">
-      <a href="thekinsmanrealtygroup@proton.me" id="popupEmail" class="contact-option"><i class="fas fa-envelope"></i> Send Email</a>
-      <a href="https://www.facebook.com/share/1AyDcJqBo1/" id="popupFacebook" class="contact-option" target="_blank"><i class="fab fa-facebook-messenger"></i> Facebook Message</a>
-      <a href=">+1 (385)-281-3672" id="popupPhone" class="contact-option"><i class="fas fa-phone-alt"></i> Call Now</a>
+      <a href="#" id="popupEmail" class="contact-option"><i class="fas fa-envelope"></i> Send Email</a>
+      <a href="#" id="popupFacebook" class="contact-option" target="_blank"><i class="fab fa-facebook-messenger"></i> Facebook Message</a>
+      <a href="#" id="popupPhone" class="contact-option"><i class="fas fa-phone-alt"></i> Call Now</a>
     </div>
   </div>
 </div>
@@ -293,33 +296,33 @@
   
   // ======================= 10 HOUSES FOR SALE (EXACT ADDRESSES) ==============================
   const saleListings = [
-    { id: 1, address: "3397 Ivan Way, Mountain View, CA 94040", price: 3198000, beds: 3, baths: 2, sqft: 2150, desc: "Stunning Eichler-inspired home with open floor plan and large lot.", aboutHouse: "This beautifully updated mid-century modern features a gourmet kitchen, private backyard, and prime Mountain View location near tech campuses.", ownerName: "Silicon Valley Realty", ownerImg: "https://randomuser.me/api/portraits/women/68.jpg", images: generateImages() },
-    { id: 2, address: "2408 Laura Ln, Mountain View, CA 94043", price: 1700000, beds: 4, baths: 2, sqft: 1580, desc: "Charming single-level home with newly renovated kitchen and oversized garage.", aboutHouse: "Great curb appeal, hardwood floors, huge backyard perfect for entertaining.", ownerName: "Premier Homes", ownerImg: "https://randomuser.me/api/portraits/men/32.jpg", images: generateImages() },
-    { id: 3, address: "943 Castilleja Ct, Los Altos, CA 94024", price: 4998000, beds: 5, baths: 3, sqft: 3800, desc: "Custom craftsman on quiet cul-de-sac, top Los Altos schools.", aboutHouse: "High-end finishes, chef's kitchen, wine cellar, and beautifully landscaped grounds.", ownerName: "Los Altos Estates", ownerImg: "https://randomuser.me/api/portraits/women/44.jpg", images: generateImages() },
-    { id: 4, address: "3172 Killian Rd, Uniontown, OH 44685", price: 260000, beds: 4, baths: 2, sqft: 1820, desc: "Well-maintained ranch with finished basement and large fenced yard.", aboutHouse: "New roof, HVAC, and flooring. Move-in ready with plenty of space.", ownerName: "Ohio Homestead", ownerImg: "https://randomuser.me/api/portraits/men/45.jpg", images: generateImages() },
-    { id: 5, address: "482 Old Rockhouse Rd, Greenville, SC 29609", price: 735000, beds: 4, baths: 3, sqft: 2600, desc: "Stunning mountain views, stone fireplace, and extensive decks.", aboutHouse: "Private setting on 1.5 acres, just minutes from downtown Greenville.", ownerName: "Carolina Living", ownerImg: "https://randomuser.me/api/portraits/women/33.jpg", images: generateImages() },
-    { id: 6, address: "18502 Mill Path Ct, Houston, TX 77084", price: 385000, beds: 4, baths: 3, sqft: 2450, desc: "Spacious two-story home with game room and upgraded kitchen.", aboutHouse: "Corner lot, mature trees, community pool, and excellent schools.", ownerName: "Houston Properties", ownerImg: "https://randomuser.me/api/portraits/men/23.jpg", images: generateImages() },
-    { id: 7, address: "5601 Beaver Dam Ln, Mint Hill, NC 28227", price: 599000, beds: 4, baths: 3, sqft: 2720, desc: "Like-new construction with open concept and screened porch.", aboutHouse: "Energy-efficient, granite counters, huge master suite, and 2-car garage.", ownerName: "Carolina Dream Homes", ownerImg: "https://randomuser.me/api/portraits/women/89.jpg", images: generateImages() },
-    { id: 8, address: "151 Rolen Rd, New Tazewell, TN 37825", price: 450000, beds: 3, baths: 3, sqft: 2100, desc: "Secluded log cabin on 5 wooded acres with creek.", aboutHouse: "Perfect retreat with wrap-around porch, fireplace, and rustic charm.", ownerName: "Tennessee Land Co.", ownerImg: "https://randomuser.me/api/portraits/men/52.jpg", images: generateImages() },
-    { id: 9, address: "5035 NW 32nd Pl, Ocala, FL 34482", price: 325000, beds: 3, baths: 2, sqft: 1680, desc: "Move-in ready ranch with split floor plan and screened lanai.", aboutHouse: "Close to horse farms and World Equestrian Center.", ownerName: "Ocala Realty Group", ownerImg: "https://randomuser.me/api/portraits/women/50.jpg", images: generateImages() },
-    { id: 10, address: "1298 Bush St, Angels Camp, CA 95222", price: 395000, beds: 3, baths: 3, sqft: 1930, desc: "Charming Victorian with modern updates, near historic downtown.", aboutHouse: "Original woodwork, renovated kitchen, lovely garden and detached workshop.", ownerName: "Gold Country Realty", ownerImg: "https://randomuser.me/api/portraits/men/62.jpg", images: generateImages() }
+    { id: 1, address: "3397 Ivan Way, Mountain View, CA 94040", price: 3198000, beds: 3, baths: 2, sqft: 2150, desc: "Stunning Eichler-inspired home with open floor plan and large lot.", aboutHouse: "This beautifully updated mid-century modern features a gourmet kitchen, private backyard, and prime Mountain View location near tech campuses.", ownerName: "Silicon Valley Realty", ownerImg: "https://randomuser.me/api/portraits/women/68.jpg", images: [] },
+    { id: 2, address: "2408 Laura Ln, Mountain View, CA 94043", price: 1700000, beds: 4, baths: 2, sqft: 1580, desc: "Charming single-level home with newly renovated kitchen and oversized garage.", aboutHouse: "Great curb appeal, hardwood floors, huge backyard perfect for entertaining.", ownerName: "Premier Homes", ownerImg: "https://randomuser.me/api/portraits/men/32.jpg", images: [] },
+    { id: 3, address: "943 Castilleja Ct, Los Altos, CA 94024", price: 4998000, beds: 5, baths: 3, sqft: 3800, desc: "Custom craftsman on quiet cul-de-sac, top Los Altos schools.", aboutHouse: "High-end finishes, chef's kitchen, wine cellar, and beautifully landscaped grounds.", ownerName: "Los Altos Estates", ownerImg: "https://randomuser.me/api/portraits/women/44.jpg", images: [] },
+    { id: 4, address: "3172 Killian Rd, Uniontown, OH 44685", price: 260000, beds: 4, baths: 2, sqft: 1820, desc: "Well-maintained ranch with finished basement and large fenced yard.", aboutHouse: "New roof, HVAC, and flooring. Move-in ready with plenty of space.", ownerName: "Ohio Homestead", ownerImg: "https://randomuser.me/api/portraits/men/45.jpg", images: [] },
+    { id: 5, address: "482 Old Rockhouse Rd, Greenville, SC 29609", price: 735000, beds: 4, baths: 3, sqft: 2600, desc: "Stunning mountain views, stone fireplace, and extensive decks.", aboutHouse: "Private setting on 1.5 acres, just minutes from downtown Greenville.", ownerName: "Carolina Living", ownerImg: "https://randomuser.me/api/portraits/women/33.jpg", images: [] },
+    { id: 6, address: "18502 Mill Path Ct, Houston, TX 77084", price: 385000, beds: 4, baths: 3, sqft: 2450, desc: "Spacious two-story home with game room and upgraded kitchen.", aboutHouse: "Corner lot, mature trees, community pool, and excellent schools.", ownerName: "Houston Properties", ownerImg: "https://randomuser.me/api/portraits/men/23.jpg", images: [] },
+    { id: 7, address: "5601 Beaver Dam Ln, Mint Hill, NC 28227", price: 599000, beds: 4, baths: 3, sqft: 2720, desc: "Like-new construction with open concept and screened porch.", aboutHouse: "Energy-efficient, granite counters, huge master suite, and 2-car garage.", ownerName: "Carolina Dream Homes", ownerImg: "https://randomuser.me/api/portraits/women/89.jpg", images: [] },
+    { id: 8, address: "151 Rolen Rd, New Tazewell, TN 37825", price: 450000, beds: 3, baths: 3, sqft: 2100, desc: "Secluded log cabin on 5 wooded acres with creek.", aboutHouse: "Perfect retreat with wrap-around porch, fireplace, and rustic charm.", ownerName: "Tennessee Land Co.", ownerImg: "https://randomuser.me/api/portraits/men/52.jpg", images: [] },
+    { id: 9, address: "5035 NW 32nd Pl, Ocala, FL 34482", price: 325000, beds: 3, baths: 2, sqft: 1680, desc: "Move-in ready ranch with split floor plan and screened lanai.", aboutHouse: "Close to horse farms and World Equestrian Center.", ownerName: "Ocala Realty Group", ownerImg: "https://randomuser.me/api/portraits/women/50.jpg", images: [] },
+    { id: 10, address: "1298 Bush St, Angels Camp, CA 95222", price: 395000, beds: 3, baths: 3, sqft: 1930, desc: "Charming Victorian with modern updates, near historic downtown.", aboutHouse: "Original woodwork, renovated kitchen, lovely garden and detached workshop.", ownerName: "Gold Country Realty", ownerImg: "https://randomuser.me/api/portraits/men/62.jpg", images: [] }
   ];
 
   // ======================= 10 HOUSES FOR RENT (EXACT ADDRESSES) ==============================
   const rentalListings = [
-    { id: 11, address: "11195 Hooper Ln, Los Altos Hills, CA 94024", price: 32998, beds: 4, baths: 5, sqft: 4500, desc: "Gated modern estate with pool, theater, and panoramic views.", aboutHouse: "Luxury living at its finest – smart home, elevators, and resort-style grounds.", ownerName: "Hillside Trust", ownerImg: "https://randomuser.me/api/portraits/women/22.jpg", images: generateImages() },
-    { id: 12, address: "1526 Hillview Dr, Los Altos, CA 94024", price: 24995, beds: 5, baths: 5.5, sqft: 4200, desc: "Contemporary masterpiece with grand living spaces and private garden.", aboutHouse: "Soaring ceilings, home office, gym, and top-of-the-line appliances.", ownerName: "SV Luxury Rentals", ownerImg: "https://randomuser.me/api/portraits/men/41.jpg", images: generateImages() },
-    { id: 13, address: "3421 Ramona St, Palo Alto, CA 94306", price: 9600, beds: 5, baths: 3, sqft: 2350, desc: "Classic Palo Alto home with updated systems, near Stanford.", aboutHouse: "Eat-in kitchen, large backyard, garage, and A+ schools.", ownerName: "Peninsula Properties", ownerImg: "https://randomuser.me/api/portraits/women/77.jpg", images: generateImages() },
-    { id: 14, address: "714 Wildwood Ln, Palo Alto, CA 94303", price: 6750, beds: 3, baths: 2, sqft: 1520, desc: "Charming single-level, hardwood floors, central AC, and sunny yard.", aboutHouse: "Walk to parks and shopping. Quiet tree-lined street.", ownerName: "Bay Area Rentals", ownerImg: "https://randomuser.me/api/portraits/men/28.jpg", images: generateImages() },
-    { id: 15, address: "174 S Bernardo Ave, Sunnyvale, CA 94086", price: 5000, beds: 3, baths: 2, sqft: 1350, desc: "Remodeled mid-century near Apple Park, EV charger included.", aboutHouse: "New kitchen, bathrooms, flooring, and private patio.", ownerName: "Sunnyvale Homes", ownerImg: "https://randomuser.me/api/portraits/women/63.jpg", images: generateImages() },
-    { id: 16, address: "298 S Trussville St, Aurora, CO 80018", price: 2877, beds: 4, baths: 2.5, sqft: 2100, desc: "Spacious two-story with mountain views and finished basement.", aboutHouse: "Community pool, park nearby, and easy commute to Denver.", ownerName: "Colorado Key Homes", ownerImg: "https://randomuser.me/api/portraits/men/34.jpg", images: generateImages() },
-    { id: 17, address: "501 Vinca Ln, Oswego, IL 60543", price: 2800, beds: 3, baths: 2, sqft: 1650, desc: "Modern townhome with attached garage and private deck.", aboutHouse: "Open floor plan, stainless appliances, and great schools.", ownerName: "Oswego Rentals", ownerImg: "https://randomuser.me/api/portraits/women/49.jpg", images: generateImages() },
-    { id: 18, address: "79659 East Vendela Street, Tucson, AZ 85748", price: 1800, beds: 3, baths: 2, sqft: 1280, desc: "Bright desert home with mountain views and fenced yard.", aboutHouse: "Newly painted, central AC, and quiet neighborhood.", ownerName: "Tucson Property Mgmt", ownerImg: "https://randomuser.me/api/portraits/men/55.jpg", images: generateImages() },
-    { id: 19, address: "6250 Jones Avenue, Riverside, CA 92505", price: 2051, beds: 2, baths: 1, sqft: 870, desc: "Cozy starter home with updated fixtures and private backyard.", aboutHouse: "Close to UCR, shopping, and freeway access.", ownerName: "Inland Empire Leasing", ownerImg: "https://randomuser.me/api/portraits/women/38.jpg", images: generateImages() },
-    { id: 20, address: "4327 West Pinsapo Drive, Fresno, CA 93722", price: 1595, beds: 3, baths: 2, sqft: 1150, desc: "Well-kept single-level with new carpet and large covered patio.", aboutHouse: "Quiet neighborhood, near schools and parks.", ownerName: "Fresno Family Rentals", ownerImg: "https://randomuser.me/api/portraits/men/73.jpg", images: generateImages() }
+    { id: 11, address: "11195 Hooper Ln, Los Altos Hills, CA 94024", price: 32998, beds: 4, baths: 5, sqft: 4500, desc: "Gated modern estate with pool, theater, and panoramic views.", aboutHouse: "Luxury living at its finest – smart home, elevators, and resort-style grounds.", ownerName: "Hillside Trust", ownerImg: "https://randomuser.me/api/portraits/women/22.jpg", images: [] },
+    { id: 12, address: "1526 Hillview Dr, Los Altos, CA 94024", price: 24995, beds: 5, baths: 5.5, sqft: 4200, desc: "Contemporary masterpiece with grand living spaces and private garden.", aboutHouse: "Soaring ceilings, home office, gym, and top-of-the-line appliances.", ownerName: "SV Luxury Rentals", ownerImg: "https://randomuser.me/api/portraits/men/41.jpg", images: [] },
+    { id: 13, address: "3421 Ramona St, Palo Alto, CA 94306", price: 9600, beds: 5, baths: 3, sqft: 2350, desc: "Classic Palo Alto home with updated systems, near Stanford.", aboutHouse: "Eat-in kitchen, large backyard, garage, and A+ schools.", ownerName: "Peninsula Properties", ownerImg: "https://randomuser.me/api/portraits/women/77.jpg", images: [] },
+    { id: 14, address: "714 Wildwood Ln, Palo Alto, CA 94303", price: 6750, beds: 3, baths: 2, sqft: 1520, desc: "Charming single-level, hardwood floors, central AC, and sunny yard.", aboutHouse: "Walk to parks and shopping. Quiet tree-lined street.", ownerName: "Bay Area Rentals", ownerImg: "https://randomuser.me/api/portraits/men/28.jpg", images: [] },
+    { id: 15, address: "174 S Bernardo Ave, Sunnyvale, CA 94086", price: 5000, beds: 3, baths: 2, sqft: 1350, desc: "Remodeled mid-century near Apple Park, EV charger included.", aboutHouse: "New kitchen, bathrooms, flooring, and private patio.", ownerName: "Sunnyvale Homes", ownerImg: "https://randomuser.me/api/portraits/women/63.jpg", images: [] },
+    { id: 16, address: "298 S Trussville St, Aurora, CO 80018", price: 2877, beds: 4, baths: 2.5, sqft: 2100, desc: "Spacious two-story with mountain views and finished basement.", aboutHouse: "Community pool, park nearby, and easy commute to Denver.", ownerName: "Colorado Key Homes", ownerImg: "https://randomuser.me/api/portraits/men/34.jpg", images: [] },
+    { id: 17, address: "501 Vinca Ln, Oswego, IL 60543", price: 2800, beds: 3, baths: 2, sqft: 1650, desc: "Modern townhome with attached garage and private deck.", aboutHouse: "Open floor plan, stainless appliances, and great schools.", ownerName: "Oswego Rentals", ownerImg: "https://randomuser.me/api/portraits/women/49.jpg", images: [] },
+    { id: 18, address: "79659 East Vendela Street, Tucson, AZ 85748", price: 1800, beds: 3, baths: 2, sqft: 1280, desc: "Bright desert home with mountain views and fenced yard.", aboutHouse: "Newly painted, central AC, and quiet neighborhood.", ownerName: "Tucson Property Mgmt", ownerImg: "https://randomuser.me/api/portraits/men/55.jpg", images: [] },
+    { id: 19, address: "6250 Jones Avenue, Riverside, CA 92505", price: 2051, beds: 2, baths: 1, sqft: 870, desc: "Cozy starter home with updated fixtures and private backyard.", aboutHouse: "Close to UCR, shopping, and freeway access.", ownerName: "Inland Empire Leasing", ownerImg: "https://randomuser.me/api/portraits/women/38.jpg", images: [] },
+    { id: 20, address: "4327 West Pinsapo Drive, Fresno, CA 93722", price: 1595, beds: 3, baths: 2, sqft: 1150, desc: "Well-kept single-level with new carpet and large covered patio.", aboutHouse: "Quiet neighborhood, near schools and parks.", ownerName: "Fresno Family Rentals", ownerImg: "https://randomuser.me/api/portraits/men/73.jpg", images: [] }
   ];
 
-  // Helper: generate 6 unique image URLs per property (different "realistic" stock photos)
+  // Helper: generate 6 unique image URLs per property
   function generateImages() {
     const baseSets = [
       ["https://images.unsplash.com/photo-1560448204-e02f11c3d0e2", "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688", "https://images.unsplash.com/photo-1580587771525-78b9dba3b914", "https://images.unsplash.com/photo-1600585154340-be6161a56a0c", "https://images.unsplash.com/photo-1564013799919-ab600027ffc6", "https://images.unsplash.com/photo-1613977257365-aaae5a9817ff"],
@@ -330,13 +333,14 @@
     return set.map(url => url + "?w=800");
   }
 
-  // Replace all images with consistent 6-url arrays (using generateImages once per property)
+  // Generate images for all listings
   for (let i = 0; i < saleListings.length; i++) saleListings[i].images = generateImages();
   for (let i = 0; i < rentalListings.length; i++) rentalListings[i].images = generateImages();
 
-  // ======================= RENDER FUNCTIONS (same as before) ================================
+  // ======================= RENDER FUNCTIONS ================================
   let currentTab = "rent";
   function formatPrice(price, isRent) { return isRent ? `$${price.toLocaleString()}/mo` : `$${price.toLocaleString()}`; }
+  
   function renderProperties() {
     const container = document.getElementById("propertiesContainer");
     const data = currentTab === "rent" ? rentalListings : saleListings;
@@ -350,8 +354,8 @@
           <div class="address"><i class="fas fa-map-pin" style="color: var(--gold);"></i> ${prop.address}</div>
           <div class="desc">${prop.desc}</div>
           <div class="features"><span><i class="fas fa-bed"></i> ${prop.beds} bd</span><span><i class="fas fa-bath"></i> ${prop.baths} ba</span><span>📐 ${prop.sqft} sqft</span></div>
-          <div class="owner-badge"><img class="owner-img" src="${prop.ownerImg}"><span class="owner-name">Landlord: ${prop.ownerName}</span></div>
-          <div class="btn-group"><button class="contact-btn" data-address="${prop.address.replace(/"/g, '&quot;')}"><i class="fas fa-headset"></i> Contact Kinsman Landlord</button><button class="apply-btn"><i class="fas fa-file-signature"></i> Apply Now</button></div>
+          <div class="owner-badge"><img class="owner-img" src="${prop.ownerImg}"><span class="owner-name">Host: ${prop.ownerName}</span></div>
+          <div class="btn-group"><button class="contact-btn" data-address="${prop.address.replace(/"/g, '&quot;')}"><i class="fas fa-headset"></i> Contact Landlord</button><button class="apply-btn"><i class="fas fa-file-signature"></i> Apply Now</button></div>
         </div>
       </div>
     `).join("");
@@ -359,6 +363,7 @@
     document.querySelectorAll(".apply-btn").forEach(btn => btn.addEventListener("click", () => openGoogleForm()));
     document.querySelectorAll(".card-img").forEach((img, idx) => img.addEventListener("click", () => showPropertyGallery(data[idx])));
   }
+  
   function showPropertyGallery(prop) {
     const modal = document.getElementById("propertyModal");
     const contentDiv = document.getElementById("propertyModalContent");
@@ -373,13 +378,16 @@
     const mainImg = document.getElementById("modalMainImg");
     thumbsImgs.forEach(t => t.addEventListener("click", () => mainImg.src = t.dataset.img));
   }
+  
   function openContactPopup(addr) {
     const p = document.getElementById("contactPopup");
-    document.getElementById("popupEmail").href = `mailto:hello@kinsmanrealty.com?subject=Inquiry about ${encodeURIComponent(addr)}&body=Hi, I'm interested in ${addr}.`;
-    document.getElementById("popupFacebook").href = "https://m.me/kinsmanrealtygroup";
-    document.getElementById("popupPhone").href = "tel:+18005248823";
+    // Set correct contact links
+    document.getElementById("popupEmail").href = "mailto:thekinsmanrealtygroup@proton.me?subject=Inquiry about " + encodeURIComponent(addr);
+    document.getElementById("popupFacebook").href = "https://www.facebook.com/share/1AyDcJqBo1/";
+    document.getElementById("popupPhone").href = "tel:+13852813672";
     p.style.display = "flex";
   }
+  
   function closeContactPopup() { document.getElementById("contactPopup").style.display = "none"; }
   function openGoogleForm() { window.open(GOOGLE_FORM_URL, "_blank"); setTimeout(() => alert("✅ Application form opened."), 200); }
 
@@ -393,4 +401,4 @@
   renderProperties();
 </script>
 </body>
-</html>
+  </html>
