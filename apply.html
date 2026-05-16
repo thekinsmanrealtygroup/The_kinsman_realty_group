@@ -344,10 +344,10 @@
     </div>
     
     <div class="fee-box">
-      <p><strong>$95 per adult</strong></p>
-      <div class="fee-amount" id="totalFee">$95.00</div>
-      <div class="fee-breakdown" id="feeDetail">($95 × 1 adult)</div>
-      <p style="font-size:0.7rem; margin-top:0.5rem;"><i class="fas fa-info-circle"></i> Covers credit/background checks, verification, and admin fees. Non-refundable.</p>
+      <p><strong>$80 per adult</strong></p>
+      <div class="fee-amount" id="totalFee">$80.00</div>
+      <div class="fee-breakdown" id="feeDetail">($80 × 1 adult)</div>
+      <p style="font-size:0.7rem; margin-top:0.5rem;"><i class="fas fa-info-circle"></i> Covers credit/background checks, verification, and admin fees. Fully refundable.</p>
     </div>
     
     <div class="upload-area">
@@ -467,7 +467,7 @@
   
   // Update fee display
   function updateTotalFee() {
-    const total = appState.adults * 95;
+    const total = appState.adults * 80;
     document.getElementById('totalFee').innerText = `$${total}.00`;
     document.getElementById('feeDetail').innerHTML = `($95 × ${appState.adults} adult${appState.adults > 1 ? 's' : ''}) = $${total}.00`;
   }
