@@ -469,7 +469,7 @@
   function updateTotalFee() {
     const total = appState.adults * 80;
     document.getElementById('totalFee').innerText = `$${total}.00`;
-    document.getElementById('feeDetail').innerHTML = `($95 × ${appState.adults} adult${appState.adults > 1 ? 's' : ''}) = $${total}.00`;
+    document.getElementById('feeDetail').innerHTML = `($80 × ${appState.adults} adult${appState.adults > 1 ? 's' : ''}) = $${total}.00`;
   }
   
   // Update UI (progress circles + review summary)
@@ -642,4 +642,4 @@
   loadState();
 </script>
 </body>
-</html>
+  </html>
